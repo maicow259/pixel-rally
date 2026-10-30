@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c54ww6683tsto"]
+
+[ext_resource type="Script" uid="uid://cg2cy6s4doxlu" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bcky0te1sx3k2" path="res://ball.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://biamwrkvaohm0" path="res://paddle.gd" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://hqw7uxmwca23" path="res://assets/sprites/paddle_blue.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://c0h5uepcu4ir5" path="res://assets/sprites/ball.png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ckdlkj8w5q3ql" path="res://assets/sprites/paddle_red.png" id="4_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vltkg"]
+size = Vector2(12, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po8m0"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hunq5"]
+size = Vector2(640, 10)
+
+[node name="Main" type="Node2D" unique_id=1639612688]
+script = ExtResource("1_ig7tw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1173160636]
+texture_filter = 1
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0.0154405115, 0.073907144, 1)
+
+[node name="PlayerLeft" type="CharacterBody2D" parent="." unique_id=982620872]
+position = Vector2(40, 140)
+script = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLeft" unique_id=1813719840]
+position = Vector2(6, 40)
+shape = SubResource("RectangleShape2D_vltkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerLeft" unique_id=1119163405]
+texture_filter = 1
+texture = ExtResource("3_lquwl")
+centered = false
+
+[node name="PlayerRight" type="CharacterBody2D" parent="." unique_id=198767207]
+position = Vector2(588, 140)
+script = ExtResource("2_h2yge")
+move_up_action = "player_two_up"
+move_down_action = "player_two_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRight" unique_id=958268370]
+position = Vector2(6, 40)
+shape = SubResource("RectangleShape2D_vltkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerRight" unique_id=1017262975]
+texture_filter = 1
+texture = ExtResource("4_7mycd")
+centered = false
+
+[node name="CenterLine" type="ColorRect" parent="." unique_id=1171409711]
+offset_left = 318.0
+offset_top = 10.0
+offset_right = 322.0
+offset_bottom = 350.0
+color = Color(0.72896373, 0.819689, 1, 1)
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=297894031]
+position = Vector2(312, 172)
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1013648812]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_po8m0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=1320338332]
+texture_filter = 1
+texture = ExtResource("4_1bvp3")
+centered = false
+
+[node name="TopWall" type="StaticBody2D" parent="." unique_id=737791280]
+position = Vector2(320, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall" unique_id=682523459]
+shape = SubResource("RectangleShape2D_hunq5")
+
+[node name="BottomWall" type="StaticBody2D" parent="." unique_id=2046588757]
+position = Vector2(320, 355)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall" unique_id=1389761611]
+shape = SubResource("RectangleShape2D_hunq5")

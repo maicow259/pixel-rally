@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c54ww6683tsto"]
+
+[ext_resource type="Script" uid="uid://cg2cy6s4doxlu" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bcky0te1sx3k2" path="res://ball.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1639612688]
+script = ExtResource("1_ig7tw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1173160636]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0.0154405115, 0.073907144, 1)
+
+[node name="PlayerLeft" type="ColorRect" parent="." unique_id=1366808468]
+offset_left = 40.0
+offset_top = 200.0
+offset_right = 52.0
+offset_bottom = 280.0
+color = Color(0.11847738, 0.3743046, 1, 1)
+
+[node name="PlayerRight" type="ColorRect" parent="." unique_id=131364379]
+offset_left = 580.0
+offset_top = 200.0
+offset_right = 592.0
+offset_bottom = 280.0
+color = Color(0.11847738, 0.3743046, 1, 1)
+
+[node name="CenterLine" type="ColorRect" parent="." unique_id=1171409711]
+offset_left = 318.0
+offset_top = 10.0
+offset_right = 322.0
+offset_bottom = 350.0
+color = Color(0.72896373, 0.819689, 1, 1)
+
+[node name="Ball" type="ColorRect" parent="." unique_id=515901471]
+offset_left = 312.0
+offset_top = 172.0
+offset_right = 328.0
+offset_bottom = 188.0
+script = ExtResource("2_0xm2m")
